@@ -10,6 +10,15 @@ import NEGY from "./textures/Earth/negy.jpg";
 import POSZ from "./textures/Earth/posz.jpg";
 import NEGZ from "./textures/Earth/negz.jpg";
 
+const RED = 0xff8e88;
+const ORANGE = 0xfeba4f;
+const YELLOW = 0xffe983;
+const GREEN = 0x77dd77;
+const BLUE = 0x0da2ff;
+const INDIGO = 0x6666ff;
+const VIOLET = 0x9966ff;
+const GREY = 0xffffff;
+
 class SeedScene extends Scene {
     constructor() {
         // Call parent Scene() constructor
@@ -17,14 +26,19 @@ class SeedScene extends Scene {
 
         // Init state
         this.state = {
-            gui: new Dat.GUI(), // Create GUI for scene
+            // gui: new Dat.GUI(), // Create GUI for scene
             rotationSpeed: 1,
             updateList: [],
         };
         this.meshes = [];
 
+        var quotes = {
+            "red": "some people are worth melting for",
+            "green": "the best and most beautiful things in this world cannot be seen or even heard, but must be felt with the heart"
+        }
+
         // Set background to a nice color
-        this.background = new Color(0x7ec0ee);
+        this.background = new Color(0xFFCCC0);
 
 
         // this.background = new THREE.CubeTextureLoader()
@@ -34,38 +48,46 @@ class SeedScene extends Scene {
         //         POSZ, NEGZ
         // ] );
 
-        // Add meshes to scene
-
-        // const land = new Land();
-        // const flower = new Flower(this);
-        // const lights = new BasicLights();
-        // this.add(land, flower, lights);
-
-        // var a = CSG.cube();
-        // var b = CSG.sphere({ radius: 1.35, stacks: 12 });
-        // var c = CSG.cylinder({ radius: 0.7, start: [-1, 0, 0], end: [1, 0, 0] });
-        // var d = CSG.cylinder({ radius: 0.7, start: [0, -1, 0], end: [0, 1, 0] });
-        // var e = CSG.cylinder({ radius: 0.7, start: [0, 0, -1], end: [0, 0, 1] });
-        
-        // this.add(a, b, c, d, e);
-
-        // var cube = new CSG.cube();
-        // var sphere = CSG.sphere({radius: 1.3, stacks: 16});
-        // var geometry = cube.subtract(sphere);
-        // this.add(geometry);
-
         const lights = new BasicLights();
         this.add(lights);
 
-        const star = new Star(this, 0, 2, 0);
-        this.add(star);
-        this.meshes.push(star.mesh);
+        const star0 = new Star(this, -5, -5, 0, RED, quotes['red']);
+        setTimeout(addStar, 1000, this, star0);
 
-        // const globe = new Globe(this);
-        // this.add(globe);
+        const star1 = new Star(this, -4, -4, 0, ORANGE, quotes['green']);
+        setTimeout(addStar, 1000, this, star1);
 
-        // Populate GUI
-        // this.state.gui.add(this.state, 'rotationSpeed', -5, 5);
+        const star2 = new Star(this, -3, -3, 0, YELLOW, quotes['green']);
+        setTimeout(addStar, 1000, this, star2);
+
+        const star3 = new Star(this, -2, -2, 0, GREEN, quotes['green']);
+        setTimeout(addStar, 1000, this, star3);
+
+        const star4 = new Star(this, -1, -1, 0, BLUE, quotes['green']);
+        setTimeout(addStar, 1000, this, star4);
+
+        const star5 = new Star(this, 0, 0, 0, INDIGO, quotes['green']);
+        setTimeout(addStar, 1000, this, star5);
+
+        const star6 = new Star(this, 1, 1, 0, VIOLET, quotes['green']);
+        setTimeout(addStar, 1000, this, star6);
+
+        const star7 = new Star(this, 2, 2, 0, GREY, quotes['green']);
+        setTimeout(addStar, 1000, this, star7);
+
+        const star8 = new Star(this, 3, 3, 0, 0x00ff00, quotes['green']);
+        setTimeout(addStar, 1000, this, star8);
+
+        const star9 = new Star(this, 4, 4, 0, 0x00ff00, quotes['green']);
+        setTimeout(addStar, 1000, this, star9);
+
+        const star10 = new Star(this, 5, 5, 0, 0x00ff00, quotes['green']);
+        setTimeout(addStar, 1000, this, star10);
+
+        function addStar(scene, s) {
+            scene.add(s);
+            scene.meshes.push(s.mesh);
+        }
     }
 
     addToUpdateList(object) {
@@ -74,7 +96,7 @@ class SeedScene extends Scene {
 
     update(timeStamp) {
         const { rotationSpeed, updateList } = this.state;
-        this.rotation.y = (rotationSpeed * timeStamp) / 10000;
+        // this.rotation.y = (rotationSpeed * timeStamp) / 10000;
 
         // Call update for each object in the updateList
         for (const obj of updateList) {
