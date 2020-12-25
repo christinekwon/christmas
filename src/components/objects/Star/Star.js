@@ -44,11 +44,11 @@ class Star extends THREE.Group {
         const objLoader = new OBJLoader();
         var material = new THREE.MeshPhongMaterial({
             color: color,
-            envMap: textureCube, 
+            // envMap: texture/\Cube, 
             // envMap: parent.background,
-            refractionRatio: 0.5,
+            // refractionRatio: 0.5,
             specular: 0xffffff,
-            shininess: 1000
+            shininess: 10
         });
         // material.side = THREE.DoubleSide;
 
@@ -113,7 +113,7 @@ class Star extends THREE.Group {
     }
 
     jump() {
-        this.state.twirl += 15 * Math.PI;
+        this.state.twirl += 25 * Math.PI;
         const jumpUp = new TWEEN.Tween(this.pivot.position)
             .to({ y: this.pivot.position.y + 3 }, 1000)
             .easing(TWEEN.Easing.Quadratic.Out);
@@ -144,7 +144,7 @@ class Star extends THREE.Group {
         if (this.state.twirl > 0) {
             // Lazy implementation of twirl
             this.state.twirl -= Math.PI / 8;
-            this.pivot.rotation.y += Math.PI / 8;
+            this.pivot.rotation.y += Math.PI / 4;
         }
 
         // Advance tween animations, if any exist

@@ -25,7 +25,7 @@ var projector, mouse = {
     INTERSECTED;
 
 // Set up camera
-camera.position.set(6, 3, -15);
+camera.position.set(0, 0, 12);
 // camera.position.set(0, 0, 0);
 camera.lookAt(new Vector3(0, 0, 0));
 
@@ -42,7 +42,7 @@ const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 controls.enablePan = false;
 controls.minDistance = 4;
-controls.maxDistance = 16;
+controls.maxDistance = 30;
 controls.update();
 
 
@@ -70,6 +70,7 @@ window.addEventListener('resize', windowResizeHandler, false);
 document.addEventListener('keyup', event => {
     if (event.code === 'Space') {
         document.getElementById('quote').style.visibility = 'hidden';
+        document.getElementById('typed').style.visibility = 'hidden';
     }
 })
 
@@ -104,6 +105,7 @@ function onMouseDown(event) {
 }
 
 function fade(element) {
+    element.style.opacity = 0;
     element.style.visibility = 'visible';
     var op = 0.1;  // initial opacity
     // element.style.display = 'block';
