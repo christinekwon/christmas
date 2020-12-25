@@ -7,8 +7,6 @@
       rel="stylesheet"
       href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css"
     />
-
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   </head>
@@ -19,13 +17,6 @@
       position: absolute;
       margin: 25px;
     }
-
-    /* Tooltip container */
-/* .tooltip {
-  position: relative;
-  display: inline-block;
-} */
-
 /* Tooltip text */
 .tooltiptext {
   visibility: hidden;
@@ -121,13 +112,6 @@
   </style>
 
   <body onload="start()">
-    <!-- <div class="loader-wrapper">
-      <div class="loader">
-        <span class="loader-inner">
-          loading...
-        </span>
-      </div>
-    </div> -->
     <div class="container">
       <div class="tooltip">?
         <span class="tooltiptext">press 'space' to exit any of the pop-ups ~</span>
@@ -145,10 +129,6 @@
   </body>
   
   <script>
-    // var $ = require('jQuery');
-    // $(window).on("load", function(){
-    //   $(".loader-wrapper").fadeOut("slow");
-    // });
     function start() {
       setTimeout(type, 2000);
 
@@ -176,7 +156,7 @@
         "click on any of the stars to reveal something that will make your heart warm :)",
         "and get ready to cringe :P",
         "(press the space bar to exit this pop-up ~)"
-      ]
+    ];
 
     var typed = new Typed('.typed', {
         strings: messages,

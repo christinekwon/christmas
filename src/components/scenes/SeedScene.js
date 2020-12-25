@@ -37,7 +37,7 @@ const quotes = [
     "\"the foolish man seeks happiness in the distance, the wise grows it under his feet.\"<br><br><br>james oppenheim",
     "\"everything has beauty, but not everyone can see.\"<br><br><br>confucius",
     "\"what you get by achieving your goals is not as important as what you become by achieving your goals.\"<br><br><br>henry david thoreau"
-]
+];
 
 class SeedScene extends Scene {
     constructor() {
