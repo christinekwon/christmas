@@ -1,7 +1,7 @@
 import * as Dat from 'dat.gui';
 import { Scene, Color } from 'three';
 import * as THREE from 'three';
-import { Globe, Flower, Land, Star } from 'objects';
+import { Star } from 'objects';
 import { BasicLights } from 'lights';
 import POSX from "./textures/Earth/posx.jpg";
 import NEGX from "./textures/Earth/negx.jpg";
